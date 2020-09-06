@@ -1,9 +1,33 @@
+:root {
+  --Accent1: #119da4;
+  --Accent2: #0c7489;
+  --Accent3: #13505b;
+  --Accent4: #040404;
+  --Accent5: #d7d9ce;
+
+  --MainBG: #253436;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: var(--MainBG);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
 }
 
 a {
@@ -11,6 +35,67 @@ a {
   text-decoration: none;
 }
 
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
 * {
   box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0;
+}
+
+li {
+  margin: 0;
+}
+
+.flex-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flex-list > * {
+  width: 20%;
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-centered-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.padding-1em {
+  padding: 1em;
+}
+.padding-2em {
+  padding: 2em;
+}
+
+.center-text {
+  text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .flex-list > * {
+    width: 45%;
+  }
 }
