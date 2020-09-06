@@ -1,0 +1,22 @@
+.pokemon-card {
+  background: #eee;
+  margin: 1.2em;
+  display: flex;
+  flex-direction: column;
+  background: var(--Accent5);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.pokemon-card img {
+  align-self: center;
+  max-width: 100%;
+  max-height: 100%;
+  background: var(--Accent1);
+}
+
+.pokemon-card > .id {
+  position: absolute;
+  left: 0.5em;
+  top: 0.5em;
+}
