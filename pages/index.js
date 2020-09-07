@@ -60,7 +60,7 @@ export default class Home extends React.Component {
         hasMore={this.state.hasMoreItems}
         loader={<p>Loading...</p>}
       >
-        <div className="flex-list" key="0">
+        <div className="flex-list" key="list">
           {this.state.Elements}
         </div>
       </InfiniteScroll>
