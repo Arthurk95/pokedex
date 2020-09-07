@@ -19,7 +19,9 @@ export default function StatBar(props) {
   return (
     <div className={styles["stat-bar-wrapper"]}>
       <p>{name}</p>
-      <div className={styles["stat-bar"]} style={barGradient}></div>
+      <div className={styles["stat-bar"]} style={barGradient}>
+        <p>{stat.base_stat}</p>
+      </div>
     </div>
   );
 }
