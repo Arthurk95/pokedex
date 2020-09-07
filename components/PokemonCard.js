@@ -92,11 +92,12 @@ export default class PokemonCard extends React.Component {
             <Types types={types} />
             <img src={image} />
           </div>
-          <Title
-            additionalStyles={{ sizeMultiplier: 1.5, center: true }}
-            text={name}
-          />
-
+          {!this.state.active && (
+            <Title
+              additionalStyles={{ sizeMultiplier: 1.5, center: true }}
+              text={name}
+            />
+          )}
         </div>
 
         <InfoPanel show={this.state.active} data={data} />
