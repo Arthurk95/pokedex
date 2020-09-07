@@ -1,5 +1,4 @@
 import StatBar from "./StatBar";
-import Title from "../Title";
 import styles from "../../styles/Stats.module.css";
 
 export default function StatsPanel(props) {
@@ -17,10 +16,5 @@ export default function StatsPanel(props) {
 
   let classList = props.toShow ? styles["stats-panel"] : "display-none";
 
-  return (
-    <div className={classList}>
-      <Title additionalStyles={{ sizeMultiplier: 1.5 }} text="Stats" />
-      {statBars}
-    </div>
-  );
+  return <div className={classList}>{statBars}</div>;
 }
