@@ -1,0 +1,15 @@
+.attribute-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.attribute {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3em;
+  background: linear-gradient(45deg, var(--Accent1) 45%, #eee 45%);
+  padding: 0 1em;
+  width: 100%;
+}
