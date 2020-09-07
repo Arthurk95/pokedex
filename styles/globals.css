@@ -1,8 +1,8 @@
 :root {
   --Accent1: #119da4;
-  --Accent2: #0c7489;
-  --Accent3: #13505b;
-  --Accent4: #040404;
+  --Accent2: #08838a;
+  --Accent3: #0ee2ed;
+  --Accent4: #a9b576;
   --Accent5: #d7d9ce;
 
   --MainBG: #253436;
@@ -92,6 +92,53 @@ li {
 
 .center-text {
   text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #253436aa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.overlay > p {
+  font-size: 1.3em;
+  text-align: center;
+  color: #eee;
+}
+.overlay.active {
+  opacity: 1;
+}
+
+.hide {
+  display: none;
+}
+
+.info-panel {
+  display: none;
+  margin: 1em 1em 1em 1em;
+  padding: 2em;
+}
+
+.info-panel.active {
+  display: flex;
+}
+
+.info-panel > * {
+  margin: 0 1em;
+}
+
+.title {
+  margin: 1em 0;
+}
+
+.text-accent2 {
+  color: var(--Accent2);
 }
 
 @media screen and (max-width: 1200px) {
