@@ -1,0 +1,15 @@
+.moves-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 300px;
+  overflow-y: auto;
+  background: var(--Accent4);
+}
+
+.moves-list .move:nth-child(even) {
+  background: #c9d39e;
+}
+
+.move {
+  padding: 0.5em;
+}
