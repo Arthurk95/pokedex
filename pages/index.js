@@ -1,15 +1,14 @@
-import styles from "../styles/Home.module.css";
-import axios from "axios";
-import ListLayout from "../components/ListLayout";
 import PokemonCard from "../components/PokemonCard";
 import InfiniteScroll from "react-infinite-scroller";
+
+const API_CORE = "https://pokeapi.co/api/v2/";
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       Elements: [],
-      NextLink: "https://pokeapi.co/api/v2/pokemon",
+      NextLink: API_CORE + "pokemon",
       hasMoreItems: true,
     };
   }
@@ -60,7 +59,7 @@ export default class Home extends React.Component {
         hasMore={this.state.hasMoreItems}
         loader={<p>Loading...</p>}
       >
-        <div className="flex-list" key="list">
+        <div className="grid-list-4-cols" key="list">
           {this.state.Elements}
         </div>
       </InfiniteScroll>
