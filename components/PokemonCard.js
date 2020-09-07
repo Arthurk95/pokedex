@@ -88,8 +88,10 @@ export default class PokemonCard extends React.Component {
             text="Click for more details"
             hover={this.state.hover}
           />
-          <Types types={types} />
-          <img src={image} />
+          <div className={styles["img-container"]}>
+            <Types types={types} />
+            <img src={image} />
+          </div>
           <Title
             additionalStyles={{ sizeMultiplier: 1.5, center: true }}
             text={name}
