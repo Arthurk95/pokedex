@@ -65,7 +65,11 @@ export default class PokemonCard extends React.Component {
     const image = sprites.other["official-artwork"].front_default;
 
     let classes = this.state.active
-      ? styles["pokemon-card"] + " " + styles["pokemon-card-grid"]
+      ? styles["pokemon-card"] +
+        " " +
+        styles["pokemon-card-grid"] +
+        " " +
+        styles["default-cursor"]
       : styles["pokemon-card"];
 
     return (
