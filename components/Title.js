@@ -9,8 +9,12 @@ export default function Title(props) {
     otherClasses = "";
   }
 
+  if (center === undefined) {
+    center = false;
+  }
+
   let cssStyles = {
-    "font-size": sizeMultiplier.toString() + "em",
+    fontSize: sizeMultiplier.toString() + "em",
   };
 
   let cssClasses = center ? "title center-text" : "title";
