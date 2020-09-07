@@ -2,6 +2,8 @@ import axios from "axios";
 import InfoPanel from "../components/InfoPanel";
 import Overlay from "../components/Overlay";
 import Title from "../components/Title";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import styles from "../styles/PokeCard.module.css";
 
 export default class PokemonCard extends React.Component {
@@ -38,17 +40,17 @@ export default class PokemonCard extends React.Component {
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
-      //console.log(pokeData);
-
       return this.buildElement(pokeData);
     }
   }
 
-  toggleInfoPanel = () => {
-    this.setState({ active: !this.state.active });
-    //console.log(this.state.active);
+  openInfoPanel = () => {
+    this.setState({ active: true });
   };
-
+  closeInfoPanel = (e) => {
+    e.stopPropagation();
+    this.setState({ active: false });
+  };
   hoverOn = () => {
     this.setState({ hover: true });
   };
@@ -69,7 +71,7 @@ export default class PokemonCard extends React.Component {
     return (
       <div
         className={classes}
-        onClick={this.toggleInfoPanel}
+        onClick={this.openInfoPanel}
         onMouseEnter={this.hoverOn}
         onMouseLeave={this.hoverOff}
       >
@@ -87,10 +89,16 @@ export default class PokemonCard extends React.Component {
           />
         </div>
 
-        <InfoPanel active={this.state.active} data={data} />
+        <InfoPanel show={this.state.active} data={data} />
+        <div
+          className={`close-button ${
+            !this.state.active ? " display-none" : ""
+          }`}
+          onClick={this.closeInfoPanel}
+        >
+          <FontAwesomeIcon icon={faTimes} />
+        </div>
       </div>
     );
   }
 }
-
-function showPanel() {}
