@@ -1,8 +1,7 @@
 .pokemon-card {
-  background: #eee;
   display: flex;
   flex-direction: column;
-  background: var(--Accent5);
+  background: #ffffffee;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
@@ -11,7 +10,7 @@
   max-width: var(--MaxCardWidth);
 }
 
-.pokemon-card .image-container {
+.pokemon-card .img-container {
   position: relative;
   max-width: var(--MaxCardWidth);
 }
@@ -37,6 +36,13 @@
   grid-template-rows: auto;
   max-width: 100%; /* override default 470px max width */
   grid-column: 1 / 5;
+}
+
+.pokemon-card-grid .img-container {
+  height: 100%;
+  background: var(--Accent1);
+  display: flex;
+  align-items: center;
 }
 
 .default-cursor {
