@@ -1,35 +1,18 @@
-import Attribute from "./Attribute";
-import StatBar from "./Stats/StatBar";
-import AttributeList from "./AttributeList";
+import AttributeList from "./Attributes/AttributeList";
+import AbilitiesList from "./Abilities/AbilitiesList";
+import MovesList from "./Moves/MovesList";
 
 export default function InfoPanel(props) {
   let info = props.data;
   let styles = props.show ? "info-panel active" : "info-panel";
-  let statBars = info.stats.map((stat, index) => {
-    return (
-      <StatBar
-        color="var(--Accent4)"
-        stat={stat}
-        secondaryColor="#EDEDED"
-        key={`${info.id}-${stat.stat.name}`}
-      />
-    );
-  });
 
   return (
     <div className={styles}>
-      <AttributeList>
-        <Attribute title="Height" value={toFeetInches(info.height * 4)} />
-      </AttributeList>
-      <div className="flex-centered-list">{statBars}</div>
+      <div className="flex-list-column gap-2em">
+        <AttributeList data={info} />
+        <AbilitiesList abilitiesData={info.abilities} />
+      </div>
+      <MovesList moves={info.moves} />
     </div>
   );
-}
-
-function toFeetInches(valueInInches) {
-  let feet = Math.trunc(valueInInches / 12);
-  let inches = valueInInches - feet * 12;
-
-  let convertedString = feet.toString() + "' " + inches.toString() + '"';
-  return convertedString;
 }

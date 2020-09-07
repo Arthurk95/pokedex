@@ -1,5 +1,5 @@
-import Title from "./Title";
-import styles from "../styles/Attributes.module.css";
+import Title from "../Title";
+import styles from "../../styles/Attributes.module.css";
 
 export default function Attribute(props) {
   const { title, value } = props;
