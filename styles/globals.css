@@ -85,6 +85,20 @@ li {
   justify-content: center;
 }
 
+.flex-list-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-list-4-cols {
+  width: 90%;
+  margin: 5vh auto;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto;
+  gap: 1em;
+}
+
 .padding-1em {
   padding: 1em;
 }
@@ -94,6 +108,10 @@ li {
 
 .center-text {
   text-align: center;
+}
+
+.gap-2em {
+  gap: 2em;
 }
 
 .overlay {
@@ -107,6 +125,7 @@ li {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
+  z-index: 5;
 }
 .overlay > p {
   font-size: 1.3em;
@@ -160,6 +179,10 @@ li {
 }
 .text-light {
   color: var(--LightTextColor);
+}
+
+.relative {
+  position: relative;
 }
 
 @media screen and (max-width: 1200px) {
