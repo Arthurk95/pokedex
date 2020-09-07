@@ -6,6 +6,8 @@
   --Accent5: #d7d9ce;
 
   --MainBG: #253436;
+
+  --LightTextColor: #eee;
 }
 
 html,
@@ -121,7 +123,7 @@ li {
 
 .info-panel {
   display: none;
-  margin: 1em 1em 1em 1em;
+  position: relative;
   padding: 2em;
 }
 
@@ -130,7 +132,23 @@ li {
 }
 
 .info-panel > * {
+  width: 45%;
   margin: 0 1em;
+}
+
+.close-button {
+  position: absolute;
+  right: 0.3em;
+  top: 0.3em;
+  width: auto;
+  font-size: 2em;
+  margin: 0;
+  color: #555;
+  cursor: pointer;
+}
+
+.display-none {
+  display: none;
 }
 
 .title {
@@ -139,6 +157,9 @@ li {
 
 .text-accent2 {
   color: var(--Accent2);
+}
+.text-light {
+  color: var(--LightTextColor);
 }
 
 @media screen and (max-width: 1200px) {
