@@ -1,0 +1,19 @@
+.stat-bar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  margin: 2% 0;
+  gap: 2em;
+}
+
+.stat-bar-wrapper > p {
+  font-weight: 100;
+}
+
+.stat-bar {
+  width: 50%;
+  height: 30px;
+  border-radius: 15px;
+  box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.4);
+}
