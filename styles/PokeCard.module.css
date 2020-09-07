@@ -8,6 +8,12 @@
   position: relative;
   cursor: pointer;
   transition: grid-column 0.2s ease-in-out;
+  max-width: var(--MaxCardWidth);
+}
+
+.pokemon-card .image-container {
+  position: relative;
+  max-width: var(--MaxCardWidth);
 }
 
 .pokemon-card img {
@@ -27,12 +33,24 @@
 .pokemon-card-grid {
   display: grid;
   width: 100%;
-  grid-template-columns: 30% auto;
+  grid-template-columns: var(--MaxCardWidth) auto;
   grid-template-rows: auto;
-
+  max-width: 100%; /* override default 470px max width */
   grid-column: 1 / 5;
 }
 
 .default-cursor {
   cursor: default;
+}
+
+@media screen and (max-width: 1200px) {
+  .pokemon-card-grid {
+    grid-column: 1 / 3;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .pokemon-card-grid {
+    grid-template-columns: 100%;
+  }
 }

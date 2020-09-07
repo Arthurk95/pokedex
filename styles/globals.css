@@ -8,6 +8,8 @@
   --MainBG: #253436;
 
   --LightTextColor: #eee;
+
+  --MaxCardWidth: 470px;
 }
 
 html,
@@ -186,7 +188,13 @@ li {
 }
 
 @media screen and (max-width: 1200px) {
-  .flex-list > * {
-    width: 45%;
+  .grid-list-4-cols {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .grid-list-4-cols {
+    grid-template-columns: 100%;
   }
 }
