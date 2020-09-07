@@ -1,6 +1,6 @@
 import AttributeList from "./Attributes/AttributeList";
 import AbilitiesList from "./Abilities/AbilitiesList";
-import MovesList from "./Moves/MovesList";
+import StatsPanel from "./Stats/StatsPanel";
 
 export default function InfoPanel(props) {
   let info = props.data;
@@ -12,7 +12,8 @@ export default function InfoPanel(props) {
         <AttributeList data={info} />
         <AbilitiesList abilitiesData={info.abilities} />
       </div>
-      <MovesList moves={info.moves} />
+
+      <StatsPanel info={info} toShow={true} />
     </div>
   );
 }

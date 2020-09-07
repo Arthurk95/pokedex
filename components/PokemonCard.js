@@ -97,7 +97,6 @@ export default class PokemonCard extends React.Component {
             text={name}
           />
 
-          <StatsPanel info={data} toShow={this.state.active} />
         </div>
 
         <InfoPanel show={this.state.active} data={data} />
