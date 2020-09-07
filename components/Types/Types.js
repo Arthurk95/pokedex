@@ -1,4 +1,5 @@
 import styles from "../../styles/Type.module.css";
+import Link from "next/link";
 
 export default function Types({ types }) {
   let elements = types.map((type, index) => {
@@ -9,5 +10,9 @@ export default function Types({ types }) {
 }
 
 export function Type({ type }) {
-  return <p className={styles.type + " " + styles[`${type}`]}>{type}</p>;
+  return (
+    <Link href={`type/${type}`}>
+      <p className={styles.type + " " + styles[`${type}`]}>{type}</p>
+    </Link>
+  );
 }
