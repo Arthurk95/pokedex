@@ -11,7 +11,7 @@ export default function Types({ types }) {
 
 export function Type({ type }) {
   return (
-    <Link href={`type/${type}`}>
+    <Link href={`/type/${type}`}>
       <p className={styles.type + " " + styles[`${type}`]}>{type}</p>
     </Link>
   );
