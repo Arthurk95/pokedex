@@ -103,10 +103,3 @@
 .dark {
   background: darkslategrey;
 }
-
-@media screen and (max-width: 1200px) {
-  .type-container {
-    bottom: 0.5em;
-    top: auto;
-  }
-}
