@@ -7,42 +7,54 @@ const API_CORE = "https://pokeapi.co/api/v2/";
 
 export default function Home(props) {
   const [nextLink, setNextLink] = useState(props.nextLink);
-  const [elements, setElements] = useState([]);
-  console.log(props);
+  const [pokeArray, setPokeArray] = useState(props.pokeList);
+  const [hasMore, setHasMore] = useState(true);
 
   const loadMore = async (page) => {
-    fetch(nextLink)
-      .then((res) => res.json())
-      .then((result) => {
-        let els = elements;
-        els.push(
-          result.results.map((poke, index) => {
-            return <PokemonCard key={poke.id}></PokemonCard>;
-          })
-        );
-        setElements(els);
+    try {
+      const { pokeList, url } = await fetchPokeNameList(nextLink);
+
+      let newArray = pokeArray;
+      pokeList.map((n, index) => {
+        newArray.push(n);
       });
+      console.log(newArray);
+      setNextLink(url);
+      setPokeArray(newArray);
+    } catch (err) {
+      setHasMore(false);
+    }
   };
 
-  return <div></div>;
-  // return (
-  //   <InfiniteScroll
-  //     pageStart={0}
-  //     loadMore={this.loadMore.bind(this)}
-  //     hasMore={this.state.hasMoreItems}
-  //     loader={<p>Loading...</p>}
-  //   >
-  //     <div className="grid-list-4-cols" key="list">
-  //       {this.state.Elements}
-  //     </div>
-  //   </InfiniteScroll>
-  // );
+  let pokeElements = pokeArray.map((name, index) => {
+    return <PokemonCard name={name} id={index + 1} redirect={true} />;
+  });
+  return (
+    <InfiniteScroll
+      pageStart={0}
+      loadMore={loadMore}
+      hasMore={hasMore}
+      loader={<p>Loading...</p>}
+    >
+      <div className="grid-list-4-cols" key="list">
+        {pokeElements}
+      </div>
+    </InfiniteScroll>
+  );
 }
 
 export async function getStaticProps() {
-  const res = await axios.get(API_CORE + "pokemon");
-
-  const pokeList = res.data.results;
-  const nextLink = res.data.next;
+  const { pokeList, url } = await fetchPokeNameList(API_CORE + "pokemon");
+  const nextLink = url;
   return { props: { pokeList, nextLink } };
+}
+
+async function fetchPokeNameList(url) {
+  const res = await axios.get(url);
+
+  const pokeList = res.data.results.map((poke) => {
+    return poke.name;
+  });
+  url = res.data.next;
+  return { pokeList, url };
 }
