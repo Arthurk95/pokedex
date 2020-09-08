@@ -7,12 +7,11 @@ import Button from "./Button";
 
 export default function InfoPanel(props) {
   let info = props.data;
-  let styles = props.show ? "info-panel active" : "info-panel";
 
   let pokeName = toCapital(info.name);
 
   return (
-    <div className={styles}>
+    <div className="info-panel">
       <div className="info-panel-title">
         <h2>{pokeName}</h2>
         <Button onclick={null} text={`${pokeName}'s Profile`} />
@@ -25,9 +24,6 @@ export default function InfoPanel(props) {
           <AbilitiesList abilitiesData={info.abilities} />
         </TitledPanel>
       </div>
-      <TitledPanel title="Stats">
-        <StatsPanel info={info} toShow={true} />
-      </TitledPanel>
     </div>
   );
 }
