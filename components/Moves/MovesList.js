@@ -1,6 +1,7 @@
 import Move from "./Move";
 import styles from "../../styles/Moves.module.css";
 import Title from "../Title";
+import TitledPanel from "../TitledPanel";
 
 export default function MovesList({ moves }) {
   let elements = moves.map((move, index) => {
@@ -9,8 +10,9 @@ export default function MovesList({ moves }) {
 
   return (
     <div>
-      <Title text="Moves" additionalStyles={{ sizeMultiplier: 1.5 }} />
-      <div className={styles["moves-list"]}>{elements}</div>
+      <TitledPanel title="Moves">
+        <div className={styles["moves-list"]}>{elements}</div>
+      </TitledPanel>
     </div>
   );
 }
