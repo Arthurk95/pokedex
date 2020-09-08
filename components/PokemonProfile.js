@@ -4,6 +4,7 @@ import PokemonCard from "./PokemonCard";
 import TitledPanel from "./TitledPanel";
 import AttributeList from "./Attributes/AttributeList";
 import AbilitiesList from "./Abilities/AbilitiesList";
+import MovesList from "./Moves/MovesList";
 import Types from "./Types/Types";
 
 export default function PokemonProfile(props) {
@@ -22,13 +23,19 @@ export default function PokemonProfile(props) {
           <StatsPanel stats={stats} id={id} />
         </div>
       </div>
-      <div className={styles.panel + " " + styles.content}>
-        <TitledPanel title="Attributes">
-          <AttributeList data={pokeData} />
-        </TitledPanel>
-        <TitledPanel title="Abilities">
-          <AbilitiesList abilitiesData={abilities} />
-        </TitledPanel>
+      <div className={styles.panel + " padding-2em " + styles.content}>
+        <div className={styles["row"]}>
+          <TitledPanel title="Attributes">
+            <AttributeList data={pokeData} />
+          </TitledPanel>
+          <TitledPanel title="Abilities">
+            <AbilitiesList abilitiesData={abilities} />
+          </TitledPanel>
+        </div>
+
+        <div>
+          <MovesList moves={pokeData.moves} />
+        </div>
       </div>
     </div>
   );
