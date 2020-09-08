@@ -20,10 +20,12 @@ export default function Type({ typeData }) {
     );
   });
   return (
-    <div className="">
-      <TitledPanel title="Pokemon with this Type">
-        <div className="flex-list gap-1em">{pokemonElements}</div>
-      </TitledPanel>
+    <div className={""}>
+      <div className="">
+        <TitledPanel title="Pokemon with this Type">
+          <div className="flex-list gap-1em scrollable">{pokemonElements}</div>
+        </TitledPanel>
+      </div>
     </div>
   );
 }
