@@ -1,28 +1,44 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import axios from "axios";
+import PokemonCard from "../../components/PokemonCard";
+import TitledPanel from "../../components/TitledPanel";
 
-export default function Type() {
-  const [data, setData] = useState();
-  const router = useRouter();
-  const { typeName } = router.query;
-  let typeData = {};
-
-  // only trigger when typeName changes...??? i have no idea
-  useEffect(() => {
-    if (typeName !== undefined) {
-      fetch(`https://pokeapi.co/api/v2/type/${typeName}`)
-        .then((res) => res.json())
-        .then((data) => {
-          typeData = data;
-          setData(data);
-        });
-    }
-  }, [typeName]);
-
-  console.log(data);
-  if (!data) {
-    return null;
-  } else {
-    return <div>{data.name}</div>;
+export default function Type({ typeData }) {
+  if (!typeData) {
+    return <div>Loading...</div>;
   }
+  const { name, damageRelations, pokemon } = typeData;
+  let pokemonElements = pokemon.map((poke) => {
+    let id = poke.pokemon.url.split("/");
+    id = id[id.length - 2];
+    return (
+      <PokemonCard
+        name={poke.pokemon.name}
+        id={id}
+        redirect={true}
+        mini={true}
+      />
+    );
+  });
+  return (
+    <div className="">
+      <TitledPanel title="Pokemon with this Type">
+        <div className="flex-list gap-1em">{pokemonElements}</div>
+      </TitledPanel>
+    </div>
+  );
+}
+
+export async function getStaticProps({ params }) {
+  const res = await axios.get(
+    `https://pokeapi.co/api/v2/type/${params.typeName}`
+  );
+  const typeData = res.data;
+  return { props: { typeData } };
+}
+
+export async function getStaticPaths() {
+  return {
+    fallback: true,
+    paths: [{ params: { typeName: "" } }],
+  };
 }
