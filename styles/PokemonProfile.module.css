@@ -1,0 +1,23 @@
+.pokemon-profile {
+  display: grid;
+  grid-template-columns: 25% auto;
+  grid-template-rows: auto;
+  gap: 3em;
+  padding-top: 20px;
+  width: 90%;
+  margin: 0 auto;
+  max-height: 100vh;
+}
+
+.pokemon-profile .panel {
+  background: var(--PanelBackground);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+@media screen and (max-width: 1200px) {
+  .pokemon-profile {
+    grid-template-columns: 100%;
+  }
+}

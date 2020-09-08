@@ -10,6 +10,11 @@
   max-width: var(--MaxCardWidth);
 }
 
+.pokemon-card.mini {
+  max-width: 150px;
+  font-size: 0.7em;
+}
+
 .pokemon-card .img-container {
   position: relative;
   max-width: var(--MaxCardWidth);
@@ -30,15 +35,6 @@
   z-index: 4;
 }
 
-.pokemon-card-grid {
-  display: grid;
-  width: 100%;
-  grid-template-columns: var(--MaxCardWidth) auto;
-  grid-template-rows: auto;
-  max-width: 100%; /* override default 470px max width */
-  grid-column: 1 / 5;
-}
-
 .pokemon-card-grid .img-container {
   height: 100%;
   background: var(--Accent1);
@@ -51,16 +47,9 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .pokemon-card-grid {
-    grid-column: 1 / 3;
-  }
 }
 
 @media screen and (max-width: 1000px) {
-  .pokemon-card-grid {
-    grid-template-columns: 100%;
-  }
-
   .pokemon-card .img-container {
     width: 100%;
     max-width: 100%;

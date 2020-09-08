@@ -9,6 +9,8 @@
 
   --LightTextColor: #eee;
 
+  --PanelBackground: white;
+
   --MaxCardWidth: 470px;
 }
 
@@ -146,6 +148,9 @@ button:hover {
   text-align: center;
 }
 
+.gap-1em {
+  gap: 1em;
+}
 .gap-2em {
   gap: 2em;
 }
@@ -171,22 +176,21 @@ button:hover {
 .overlay.active {
   opacity: 1;
 }
+.overlay:hover {
+  opacity: 1;
+}
 
 .hide {
   display: none;
 }
 
 .info-panel {
-  display: none;
+  display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto auto;
   position: relative;
   gap: 2em;
   padding: 2em;
-}
-
-.info-panel.active {
-  display: grid;
 }
 
 .info-panel-title {
