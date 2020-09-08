@@ -1,36 +1,34 @@
 import styles from "../../styles/Abilities.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestion } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
+import { toCapital } from "../../utils/util";
 const API_CORE = "https://pokeapi.co/api/v2/";
 
-export default class Ability extends React.Component {
-  constructor(props) {
-    super(props);
-    this.abilityData = props.abilityData;
-    this.state = {
-      description: "",
-    };
-  }
+export default function Ability({ abilityData }) {
+  const [description, setDesc] = useState("");
+  let name = toCapital(abilityData.name);
 
-  componentDidMount() {
-    fetch(this.abilityData.url)
+  useEffect(() => {
+    fetch(abilityData.url)
       .then((res) => res.json())
       .then((result) => {
-        this.setState({
-          description: result.effect_entries[0].effect,
+        result.effect_entries.forEach((element) => {
+          if (element.language.name === "en") {
+            setDesc(element.effect);
+          }
         });
       });
-  }
+  }, []);
 
-  render() {
-    let abilText = this.abilityData.name;
-    abilText = abilText.charAt(0).toUpperCase() + abilText.slice(1);
-    return (
-      <div className={styles.ability}>
-        <p>{abilText}</p>
-        <FontAwesomeIcon icon={faQuestion} size="xs" />
-        
+  return (
+    <div className={styles.ability}>
+      <div>
+        <p>{name}</p>
       </div>
-    );
-  }
+      <div>
+        <p>{description}</p>
+      </div>
+    </div>
+  );
 }
