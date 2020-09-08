@@ -19,6 +19,7 @@ export default function Type() {
     }
   }, [typeName]);
 
+  console.log(data);
   if (!data) {
     return null;
   } else {

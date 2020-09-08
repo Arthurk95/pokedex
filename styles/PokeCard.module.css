@@ -16,6 +16,7 @@
 }
 
 .pokemon-card img {
+  margin: 0 auto;
   align-self: center;
   max-width: 100%;
   max-height: 100%;
@@ -58,5 +59,10 @@
 @media screen and (max-width: 1000px) {
   .pokemon-card-grid {
     grid-template-columns: 100%;
+  }
+
+  .pokemon-card .img-container {
+    width: 100%;
+    max-width: 100%;
   }
 }
