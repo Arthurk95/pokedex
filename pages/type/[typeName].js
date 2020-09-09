@@ -54,25 +54,26 @@ export default function TypeProfile({ typeData }) {
           <TitledPanel title="Strong Against" titleSubtext="x2 damage against">
             <div className="flex-list gap-1em">{strength}</div>
           </TitledPanel>
-          <TitledPanel title="Weaknesses">
+          <TitledPanel title="Weaknesses" titleSubtext="x2 damage from">
             <div className="flex-list gap-1em">{weaknesses}</div>
           </TitledPanel>
-          <TitledPanel title="Resistance Against">
+          <TitledPanel
+            title="Resistance Against"
+            titleSubtext="half damage from"
+          >
             <div className="flex-list gap-1em">{resistances}</div>
           </TitledPanel>
-          <TitledPanel title="Is Resisted By">
+          <TitledPanel title="Is Resisted By" titleSubtext="half damage to">
             <div className="flex-list gap-1em">{ineffectives}</div>
           </TitledPanel>
         </div>
       </div>
-      <div className="padding-2em panel">
-        <TitledPanel
-          title="Pokemon with this Type"
-          contentClasses="panel-bg-dark"
-        >
-          <div className="flex-list gap-1em scrollable">{pokemonElements}</div>
-        </TitledPanel>
-      </div>
+      <TitledPanel
+        title="Pokemon with this Type"
+        contentClasses="panel-bg-dark flex-list gap-1em scrollable"
+      >
+        {pokemonElements}
+      </TitledPanel>
     </div>
   );
 }
