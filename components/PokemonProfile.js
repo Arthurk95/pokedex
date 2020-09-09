@@ -16,15 +16,15 @@ export default function PokemonProfile(props) {
   }
   return (
     <div className={styles["pokemon-profile"]}>
-      <div className={styles.left + " " + styles.panel}>
+      <div className={"panel"}>
         <PokemonCard name={name} id={id} redirect={false} imgUrl={imgUrl} />
         <Types types={types} />
         <div className="padding-2em">
           <StatsPanel stats={stats} id={id} />
         </div>
       </div>
-      <div className={styles.panel + " padding-2em " + styles.content}>
-        <div className={styles["row"]}>
+      <div className={"panel flex-list-column padding-2em gap-2em "}>
+        <div className={styles.row}>
           <TitledPanel title="Attributes">
             <AttributeList data={pokeData} />
           </TitledPanel>
