@@ -1,10 +1,21 @@
 import styles from "../styles/TitledPanel.module.css";
 
-export default function TitledPanel({ title, children }) {
+export default function TitledPanel({
+  title,
+  titleSubtext,
+  contentClasses,
+  children,
+}) {
   return (
     <div className={styles["titled-panel"]}>
-      <h4>{title}</h4>
-      <div className={styles["titled-panel-contents"]}>{children}</div>
+      <div className={styles["title-container"]}>
+        <h4>{title}</h4>
+        <p>{titleSubtext}</p>
+      </div>
+
+      <div className={styles["titled-panel-contents"] + " " + contentClasses}>
+        {children}
+      </div>
     </div>
   );
 }
