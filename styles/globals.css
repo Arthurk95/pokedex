@@ -186,6 +186,13 @@ button:hover {
   box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
+.placeholder {
+  width: 60%;
+  height: 1em;
+  align-self: center;
+  background: #ccc;
+}
+
 .center-text {
   text-align: center;
 }
