@@ -6,13 +6,14 @@ import AttributeList from "./Attributes/AttributeList";
 import AbilitiesList from "./Abilities/AbilitiesList";
 import MovesList from "./Moves/MovesList";
 import Types from "./Types/Types";
+import Loader from "./Loader";
 
 export default function PokemonProfile(props) {
   const { pokeData, imgUrl } = props;
   const { name, id, types, moves, abilities, stats } = pokeData;
 
   if (!pokeData.name) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
   return (
     <div className={styles["pokemon-profile"]}>
