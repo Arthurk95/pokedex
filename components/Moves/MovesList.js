@@ -10,8 +10,8 @@ export default function MovesList({ moves }) {
 
   return (
     <div>
-      <TitledPanel title="Moves">
-        <div className={styles["moves-list"]}>{elements}</div>
+      <TitledPanel title="Moves" contentClasses="scrollable panel-bg-dark">
+        {elements}
       </TitledPanel>
     </div>
   );
