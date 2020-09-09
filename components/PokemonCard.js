@@ -2,19 +2,28 @@ import InfoPanel from "../components/InfoPanel";
 import Overlay from "../components/Overlay";
 import Title from "../components/Title";
 import styles from "../styles/PokeCard.module.css";
-import { toCapital } from "../utils/util";
+import { toCapital, getImageUrl } from "../utils/util";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import Loader from "./Loader";
 
 const IMAGE_URL =
   "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
 const IMAGE_EXT = ".png";
 
 function PokemonCard(props) {
-  let { name, id, redirect, mini, imgUrl } = props;
+  let { name, id, redirect, mini } = props;
+  const [imageUrl, setImageUrl] = useState(undefined);
   const href = `/pokemon/${name}`;
   name = toCapital(name);
-  const image = imgUrl ? imgUrl : `${IMAGE_URL}${id}${IMAGE_EXT}`;
 
+  useEffect(() => {
+    async function getImg() {
+      let url = await getImageUrl(id);
+      setImageUrl(url);
+    }
+    getImg();
+  }, [id]);
   let classes = styles["pokemon-card"];
   if (!redirect) {
     classes += " " + styles["default-cursor"];
@@ -23,19 +32,18 @@ function PokemonCard(props) {
     classes += " " + styles.mini;
   }
 
+  let imageElement = imageUrl ? (
+    <img src={imageUrl} />
+  ) : (
+    <Loader size={"small"} />
+  );
+
   let html = (
     <div className={classes}>
       <p className={styles.id}>#{id}</p>
       <Overlay text="Click for more details" />
-      <div className="flex-list-centered relative">
-        <div className={styles["img-container"]}>
-          <img src={image} />
-        </div>
-        <Title
-          additionalStyles={{ sizeMultiplier: 1.5, center: true }}
-          text={name}
-        />
-      </div>
+      <div className={styles["img-container"]}>{imageElement}</div>
+      <Title size={1.5} center={true} text={name} />
     </div>
   );
   if (redirect) {
