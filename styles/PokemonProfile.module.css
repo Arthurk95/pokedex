@@ -9,12 +9,7 @@
   max-height: 100vh;
 }
 
-.pokemon-profile .panel {
-  background: var(--PanelBackground);
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-}
+
 
 .pokemon-profile .row {
   display: grid;
