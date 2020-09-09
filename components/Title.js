@@ -1,20 +1,11 @@
 export default function Title(props) {
-  const { text, additionalStyles } = props;
-  let { center, sizeMultiplier, otherClasses } = additionalStyles;
-  if (sizeMultiplier === undefined) {
-    sizeMultiplier = 1;
-  }
-
-  if (otherClasses === undefined) {
-    otherClasses = "";
-  }
-
-  if (center === undefined) {
-    center = false;
+  const { text, size, center, otherClasses } = props;
+  if (size === undefined) {
+    size = 1;
   }
 
   let cssStyles = {
-    fontSize: sizeMultiplier.toString() + "em",
+    fontSize: size.toString() + "em",
   };
 
   let cssClasses = center ? "title center-text" : "title";
