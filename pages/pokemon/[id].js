@@ -1,12 +1,13 @@
 import axios from "axios";
 import PokemonProfile from "../../components/PokemonProfile";
 import { getImageUrl } from "../../utils/util";
+import Loader from "../../components/Loader";
 
 const POKE_API = "https://pokeapi.co/api/v2/pokemon/";
 
 export default function Pokemon({ pokeData, url }) {
   if (!pokeData) {
-    return <div>Loading...</div>;
+    return <Loader />;
   } else {
     return <PokemonProfile pokeData={pokeData} imgUrl={url} />;
   }
