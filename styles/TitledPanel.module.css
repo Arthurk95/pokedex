@@ -9,10 +9,21 @@
   width: 100%;
 }
 
-.titled-panel > h4 {
-  font-size: 1.2em;
+.titled-panel .title-container {
   padding: 1em;
+  background: var(--Accent5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titled-panel .title-container h4 {
+  font-size: 1.2em;
   margin: 0;
   font-weight: 300;
-  background: var(--Accent5);
+}
+
+.titled-panel .title-container p {
+  font-size: 0.8em;
+  font-weight: 100;
 }
